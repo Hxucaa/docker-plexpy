@@ -9,6 +9,9 @@
 ip=$(getent hosts 'ss-client' | awk '{print $1}')
 git config --global https.proxy socks5://$ip:1080
 
+#Increase git buffer size
+git config --global http.postBuffer 524288000
+
 # install app 
 [[ ! -d "/opt/plexpy/.git" ]] && \
 	git clone --branch $ADVANCED_GIT_BRANCH https://github.com/JonnyWong16/plexpy.git /opt/plexpy
