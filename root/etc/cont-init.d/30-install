@@ -5,8 +5,14 @@
 	echo "Using this variable is unsupported., THERE IS NO PATH BACK TO MASTER GIT BRANCH OTHER THAN REMOVING EXISTING APPDATA FOLDER, WE MEAN IT WHEN WE SAY UNSUPPORTED" || \
 	ADVANCED_GIT_BRANCH="master"
 
+#Set git proxy
+ip=$(getent hosts 'ss-client' | awk '{print $1}')
+git config --global http.proxy socks5://$ip:1080
+git config --global https.proxy socks5://$ip:1080
+
 # install app 
 [[ ! -d "/opt/plexpy/.git" ]] && \
+	git config --global http.
 	git clone --branch $ADVANCED_GIT_BRANCH https://github.com/JonnyWong16/plexpy.git /opt/plexpy
 
 # permissions
