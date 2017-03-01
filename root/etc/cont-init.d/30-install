@@ -12,7 +12,6 @@ git config --global https.proxy socks5://$ip:1080
 
 # install app 
 [[ ! -d "/opt/plexpy/.git" ]] && \
-	git config --global http.
 	git clone --branch $ADVANCED_GIT_BRANCH https://github.com/JonnyWong16/plexpy.git /opt/plexpy
 
 # permissions
