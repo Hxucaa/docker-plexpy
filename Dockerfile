@@ -1,8 +1,12 @@
 FROM lsiobase/alpine.python:3.5
-MAINTAINER sparklyballs
+MAINTAINER hxucaa
 
 # add local files
-COPY root/ /
+COPY plexpy-1.4.16/ /opt/plexpy
+
+CMD "s6-setuidgid abc python /opt/plexpy/PlexPy.py \
+        --datadir /config"
+ENTRYPOINT exec
 
 # ports and volumes
 VOLUME /config /logs
